@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>US Trend Daily | Latest US Trending News</title>
+
+  <meta name="description" content="US Trend Daily brings you the latest US news, trending stories, weather, sports, entertainment, technology and money updates.">
+
+  <meta name="keywords" content="US news, latest US news, trending news USA, breaking news USA, American news, US weather, US sports, technology news, money news">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* TOP BAR */
+
+    .top {
+      background: #111827;
+      color: #fff;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      min-height: 74px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .logo b {
+      background: #dc2626;
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 6px;
+      margin-right: 5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #374151;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #dc2626;
+    }
+
+    .menu-btn {
+      display: none;
+      background: #111827;
+      color: #fff;
+      border: 0;
+      border-radius: 6px;
+      padding: 7px 11px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* BREAKING */
+
+    .ticker {
+      background: #dc2626;
+      color: #fff;
+      padding: 10px 6%;
+      font-size: 14px;
+    }
+
+    .ticker strong {
+      margin-right: 8px;
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: #fff;
+      padding: 65px 55px;
+      border-radius: 18px;
+      margin-bottom: 45px;
+    }
+
+    .hero-label {
+      color: #fca5a5;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 12px 0 18px;
+      font-size: 48px;
+      line-height: 1.12;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: #e5e7eb;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #dc2626;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      background: #b91c1c;
+    }
+
+    /* SECTIONS */
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      color: #111827;
+      font-size: 29px;
+      margin-bottom: 22px;
+    }
+
+    /* TRENDING CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.05);
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    }
+
+    .pic {
+      height: 175px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .red {
+      background: linear-gradient(135deg, #991b1b, #ef4444);
+    }
+
+    .blue {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    }
+
+    .green {
+      background: linear-gradient(135deg, #065f46, #10b981);
+    }
+
+    .pad {
+      padding: 22px;
+    }
+
+    .category {
+      color: #dc2626;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .7px;
+    }
+
+    .pad h3 {
+      font-size: 21px;
+      line-height: 1.3;
+      margin: 8px 0 10px;
+    }
+
+    .pad p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .read-more {
+      color: #dc2626;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* LATEST */
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 22px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .mini {
+      min-width: 145px;
+      height: 100px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #111827, #374151);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .news-item h3 {
+      font-size: 20px;
+      margin: 5px 0;
+    }
+
+    .news-item p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    /* CATEGORIES */
+
+    .cats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .cats a {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      padding: 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-align: center;
+      transition: .2s;
+    }
+
+    .cats a:hover {
+      background: #111827;
+      color: #fff;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 15px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .newsletter p {
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .newsletter form {
+      display: flex;
+      max-width: 520px;
+      margin: auto;
+    }
+
+    .newsletter input {
+      flex: 1;
+      border: 1px solid #d1d5db;
+      padding: 13px 15px;
+      border-radius: 7px 0 0 7px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .newsletter button {
+      border: 0;
+      background: #dc2626;
+      color: #fff;
+      padding: 0 20px;
+      border-radius: 0 7px 7px 0;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      padding: 45px 6%;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer .logo {
+      color: #fff;
+    }
+
+    footer h4 {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin: 7px 0;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    footer p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    .copyright {
+      grid-column: 1 / -1;
+      border-top: 1px solid #374151;
+      padding-top: 20px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      header {
+        padding: 14px 20px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 40px 25px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .news-item {
+        flex-direction: column;
+      }
+
+      .mini {
+        width: 100%;
+      }
+
+      footer {
+        grid-template-columns: 1fr;
+      }
+
+      .copyright {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      main {
+        padding: 25px 14px 45px;
+      }
+
+      .hero {
+        border-radius: 12px;
+        padding: 32px 20px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      section h2 {
+        font-size: 25px;
+      }
+
+      .cats {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter {
+        padding: 25px 15px;
+      }
+
+      .newsletter form {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .newsletter input,
+      .newsletter button {
+        height: 45px;
+        border-radius: 7px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top">
+    LATEST US NEWS • TRENDING STORIES • UPDATED DAILY
+  </div>
+
+  <!-- HEADER -->
+  <header>
+
+    <a href="index.html" class="logo">
+      <b>US</b> Trend Daily
+    </a>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </button>
+
+    <nav id="nav">
+
+      <a href="index.html">Home</a>
+      <a href="#latest">Latest</a>
+      <a href="#trending">Trending</a>
+      <a href="#categories">Categories</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- BREAKING -->
+  <div class="ticker">
+    <strong>BREAKING</strong>
+    Latest US stories and important updates — check back regularly for new reports.
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-label">
+        US NEWS
+      </div>
+
+      <h1>
+        What America Is Talking About Today
+      </h1>
+
+      <p>
+        Trending stories, breaking developments and useful updates from across the United States.
+      </p>
+
+      <a href="#latest" class="btn">
+        Explore Latest News →
+      </a>
+
+    </section>
+
+
+    <!-- TRENDING -->
+    <section id="trending">
+
+      <h2>🔥 Trending Now</h2>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="pic red">
+            TRENDING
+          </div>
+
+          <div class="pad">
+
+            <div class="category">
+              US NEWS
+            </div>
+
+            <h3>
+              Major Stories Drawing Attention Across the United States
+            </h3>
+
+            <p>
+              Explore today's most discussed stories and their context.
+            </p>
+
+            <a class="read-more" href="article.html">
+              Read Story →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="pic blue">
+            WEATHER
+          </div>
+
+          <div class="pad">
+
+            <div class="category">
+              WEATHER
+            </div>
+
+            <h3>
+              Weather Updates and Forecasts Across the US
+            </h3>
+
+            <p>
+              Important weather conditions and forecasts.
+            </p>
+
+            <a class="read-more" href="article.html">
+              Read Story →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="pic green">
+            MONEY
+          </div>
+
+          <div class="pad">
+
+            <div class="category">
+              MONEY
+            </div>
+
+            <h3>
+              Money, Prices and Economy: What to Know
+            </h3>
+
+            <p>
+              Key financial and consumer updates.
+            </p>
+
+            <a class="read-more" href="article.html">
+              Read Story →
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- LATEST -->
+    <section id="latest">
+
+      <h2>Latest News</h2>
+
+      <div class="list">
+
+        <article class="news-item">
+
+          <div class="mini">
+            US NEWS
+          </div>
+
+          <div>
+
+            <div class="category">
+              US NEWS
+            </div>
+
+            <h3>
+              Latest Developments From Around America
+            </h3>
+
+            <p>
+              A concise overview of a developing US story and the facts currently available.
+            </p>
+
+            <a class="read-more" href="article.html">
+              Continue Reading →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="news-item">
+
+          <div class="mini">
+            SPORTS
+          </div>
+
+          <div>
+
+            <div class="category">
+              SPORTS
+            </div>
+
+            <h3>
+              Sports News, Results and Major Updates
+            </h3>
+
+            <p>
+              Major sports stories and notable developments.
+            </p>
+
+            <a class="read-more" href="article.html">
+              Continue Reading →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="news-item">
+
+          <div class="mini">
+            TECH
+          </div>
+
+          <div>
+
+            <div class="category">
+              TECHNOLOGY
+            </div>
+
+            <h3>
+              Technology Stories Shaping Everyday Life
+            </h3>
+
+            <p>
+              Digital trends and technology developments.
+            </p>
+
+            <a class="read-more" href="article.html">
+              Continue Reading →
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+
+      <h2>Browse Categories</h2>
+
+      <div class="cats">
+
+        <a href="category.html?category=us-news">
+          🇺🇸 US News
+        </a>
+
+        <a href="category.html?category=world">
+          🌎 World
+        </a>
+
+        <a href="category.html?category=weather">
+          🌦️ Weather
+        </a>
+
+        <a href="category.html?category=sports">
+          🏈 Sports
+        </a>
+
+        <a href="category.html?category=entertainment">
+          🎬 Entertainment
+        </a>
+
+        <a href="category.html?category=technology">
+          💻 Technology
+        </a>
+
+        <a href="category.html?category=money">
+          💵 Money
+        </a>
+
+        <a href="category.html?category=lifestyle">
+          ❤️ Lifestyle
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+
+      <h2>
+        Get the Daily Trend
+      </h2>
+
+      <p>
+        Stay updated with the latest US stories and important news.
+      </p>
+
+      <form onsubmit="subscribe(event)">
+
+        <input
+          type="email"
+          placeholder="Your email address"
+          required
+        >
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div>
+
+      <div class="logo">
+        <b>US</b> Trend Daily
+      </div>
+
+      <p>
+        US Trend Daily brings you trending stories, US news, weather,
+        sports, entertainment, technology and money updates.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>Explore</h4>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>Legal</h4>
+
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
+      <a href="disclaimer.html">
+        Disclaimer
+      </a>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 US Trend Daily. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    function toggleMenu() {
+
+      const nav = document.getElementById("nav");
+
+      nav.classList.toggle("active");
+
+    }
+
+    function subscribe(event) {
+
+      event.preventDefault();
+
+      alert("Thank you for subscribing to US Trend Daily!");
+
+    }
+
+  </script>
+
+</body>
+</html>
