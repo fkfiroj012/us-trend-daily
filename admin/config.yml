@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: fkfiroj012/us-trend-daily
+  name: turbo-github
+  turbo_site_id: 6d788f5c-5c83-4a86-8318-4894d4aa72eb
   branch: main
 
 media_folder: "images/uploads"
@@ -15,7 +15,18 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Category", name: "category", widget: "select", options: ["US News","World","Weather","Sports","Entertainment","Technology","Money","Lifestyle"]}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "US News"
+          - "World"
+          - "Weather"
+          - "Sports"
+          - "Entertainment"
+          - "Technology"
+          - "Money"
+          - "Lifestyle"
       - {label: "Featured Image", name: "image", widget: "image", required: false}
       - {label: "Author", name: "author", widget: "string", default: "US Trend Daily"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
