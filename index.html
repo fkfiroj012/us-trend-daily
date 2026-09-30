@@ -2,10 +2,91 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
   <title>US Trend Daily Admin</title>
 </head>
+
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/decap-cms@beta/dist/decap-cms.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/decap-cms@beta/dist/decap-cms.js"></script>
+
+<script>
+  CMS.init({
+    config: {
+      load_config_file: false,
+
+      backend: {
+        name: "turbo-github",
+        turbo_site_id: "6d788f5c-5c83-4a86-8318-4894d4aa72eb",
+        branch: "main"
+      },
+
+      media_folder: "images/uploads",
+      public_folder: "/images/uploads",
+
+      collections: [
+        {
+          name: "posts",
+          label: "Articles",
+          folder: "posts",
+          create: true,
+          slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+
+          fields: [
+            {
+              label: "Title",
+              name: "title",
+              widget: "string"
+            },
+            {
+              label: "Description",
+              name: "description",
+              widget: "text"
+            },
+            {
+              label: "Category",
+              name: "category",
+              widget: "select",
+              options: [
+                "US News",
+                "World",
+                "Weather",
+                "Sports",
+                "Entertainment",
+                "Technology",
+                "Money",
+                "Lifestyle"
+              ]
+            },
+            {
+              label: "Featured Image",
+              name: "image",
+              widget: "image",
+              required: false
+            },
+            {
+              label: "Author",
+              name: "author",
+              widget: "string",
+              default: "US Trend Daily"
+            },
+            {
+              label: "Publish Date",
+              name: "date",
+              widget: "datetime"
+            },
+            {
+              label: "Body",
+              name: "body",
+              widget: "markdown"
+            }
+          ]
+        }
+      ]
+    }
+  });
+</script>
+
 </body>
 </html>
